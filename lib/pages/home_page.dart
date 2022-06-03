@@ -4,7 +4,6 @@ import 'package:reddit/pages/comments_page.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/material.dart';
 import 'package:reddit/Post.dart';
-
 import '../comment.dart';
 
 class RedditHomePage extends StatefulWidget {
