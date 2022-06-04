@@ -31,32 +31,31 @@ class MyMainPageState extends State<MyMainPage> {
         preferredSize: const Size.fromHeight(40.0), // here the desired height
         child: AppBar(
           backgroundColor: const Color.fromARGB(255, 18, 18, 18),
-          title: Image.asset("assets/images/3.png", height: 35.0,),
-          actions: [
-            Container(
-              decoration: const BoxDecoration(
-                  color: Color.fromARGB(32, 255, 255, 255),
-                  borderRadius: BorderRadius.all(Radius.circular(5))
+          leading: Image.asset("assets/images/3.png", height: 35.0,),
+          title: Container(
+            decoration: const BoxDecoration(
+                color: Color.fromARGB(32, 255, 255, 255),
+                borderRadius: BorderRadius.all(Radius.circular(3))
+            ),
+            width: screenSize.width * 0.93,
+            height: 32.0,
+            margin: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
+            child: TextField(
+              style: const TextStyle(
+                height: 2.3,
+                color: Colors.white,
               ),
-              width: screenSize.width * 0.8,
-              margin: const EdgeInsets.symmetric(vertical: 5.0, horizontal: 10.0),
-              child: TextField(
-                style: const TextStyle(
-                  height: 2.3,
-                  color: Colors.white,
-                ),
-                decoration: InputDecoration(
-                  focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(5)),
-                  prefixIcon: const Icon(Icons.search, color: Colors.white54, size: 20,),
-                  hintText: 'Search',
-                  hintStyle: const TextStyle(
-                    color: Colors.white54,
-                    fontSize: 16,
-                  ),
+              decoration: InputDecoration(
+                focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(5)),
+                prefixIcon: const Icon(Icons.search, color: Colors.white54, size: 20,),
+                hintText: 'Search',
+                hintStyle: const TextStyle(
+                  color: Colors.white54,
+                  fontSize: 16,
                 ),
               ),
             ),
-          ],
+          ),
         ),
       ),
       body: pages[currentPageIndex],

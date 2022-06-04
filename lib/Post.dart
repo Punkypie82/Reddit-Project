@@ -1,3 +1,4 @@
+import 'package:reddit/User.dart';
 import 'package:reddit/comment.dart';
 
 class Post {
@@ -6,11 +7,13 @@ class Post {
   String date;
   String title;
   String description;
+  // User user;
   String profilePictureUrl;
   String postUrl;
   Comment comments;
+  // var comments = List<Comment>.empty(growable: true);
   int upvotes = 0;
-  int commentsNum = 0;
+  int commentsNum = 5;
   bool upVoteEnabled = false;
   bool downVoteEnabled = false;
 

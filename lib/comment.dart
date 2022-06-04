@@ -18,13 +18,4 @@ class Comment {
   bool getUpVoteEnabled() {return upVoteEnabled;}
 
   bool getDownVoteEnabled() {return downVoteEnabled;}
-
-  downVote() {
-    downVoteEnabled ? downVoteEnabled = false : downVoteEnabled = true;
-    if (upVoteEnabled && downVoteEnabled) upVoteEnabled = false;
-  }
-  void upVote() {
-    upVoteEnabled ? upVoteEnabled = false : upVoteEnabled = true;
-    if (upVoteEnabled && downVoteEnabled) downVoteEnabled = false;
-  }
 }

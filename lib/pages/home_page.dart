@@ -4,7 +4,9 @@ import 'package:reddit/pages/comments_page.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/material.dart';
 import 'package:reddit/Post.dart';
+
 import '../comment.dart';
+import 'community_page.dart';
 
 class RedditHomePage extends StatefulWidget {
   @override
@@ -31,10 +33,20 @@ class RedditHomePageState extends State {
     return ListView.builder(
       itemCount: 5,
       itemBuilder: (context, index) {
+        upVote() {
+          setState(() {
+            post.upVoteEnabled ? post.upVoteEnabled = false : post.upVoteEnabled = true;
+            if (post.downVoteEnabled && post.upVoteEnabled) {post.downVoteEnabled = false; post.upvotes++;}
+            if (post.upVoteEnabled) post.upvotes++;
+            else post.upvotes--;
+          });
+        }
         downVote() {
           setState(() {
             post.downVoteEnabled ? post.downVoteEnabled = false : post.downVoteEnabled = true;
-            if (post.upVoteEnabled && post.downVoteEnabled) post.upVoteEnabled = false;
+            if (post.upVoteEnabled && post.downVoteEnabled) {post.upVoteEnabled = false; post.upvotes--;}
+            if (post.downVoteEnabled) post.upvotes--;
+            else post.upvotes++;
           });
         }
         return Container(
@@ -114,7 +126,7 @@ class RedditHomePageState extends State {
                   children: [
                     Row(
                       children: [
-                        IconButton(onPressed: () {post.upChanger(); if (post.upVoteEnabled && post.downVoteEnabled) post.downChanger(); setState(() {});}, icon: post.upVoteEnabled ? Image.asset('assets/images/9.png', color: const Color.fromARGB(255, 255, 69, 0),) : Image.asset('assets/images/7.png', color: Colors.white60,), iconSize: 22),
+                        IconButton(onPressed: upVote, icon: post.upVoteEnabled ? Image.asset('assets/images/9.png', color: const Color.fromARGB(255, 255, 69, 0),) : Image.asset('assets/images/7.png', color: Colors.white60,), iconSize: 22),
                         Text(
                           post.upvotes.toString(),
                           style: TextStyle(
@@ -127,6 +139,7 @@ class RedditHomePageState extends State {
                     Row(
                       children: [
                         IconButton(onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => CommentsPage(post)));}, icon: Image.asset('assets/images/11.png', color: Colors.white60,), iconSize: 21),
+                        IconButton(onPressed: () {Navigator.push(context, MaterialPageRoute(builder: (context) => CommunityPage()));}, icon: Image.asset('assets/images/11.png', color: Colors.white60,), iconSize: 21),
                         Text(post.commentsNum.toString(), style: const TextStyle(color: Colors.white60,),),
                       ],
                     ),
