@@ -1,12 +1,14 @@
 import java.io.DataInputStream;
 import java.io.DataOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Scanner;
 
 public class Core {
     static boolean serverOn=true;
-    static int port=1111;
+    static int port=6666;
     public static void main(String[] args){
         try{
             FileController.getFileController().addFileController("AddPost", new Controller("AddPost.txt"));
@@ -44,14 +46,12 @@ public class Core {
             StringBuilder str = new StringBuilder();
 
             char i;
+            String line="";
             try {
-                while ((i = (char) din.read()) != ',') {
-                    num.append(i);
-                }
-                int counter=Integer.parseInt(num.toString());
-                for(int j=0 ; j<counter ; j++){
-                    str.append((char) din.read());
-
+                Scanner in = new Scanner(s.getInputStream());
+                while (in.hasNextLine()){
+                    //process each line in some way
+                     line = in.nextLine();
 
                 }
             } catch (IOException e) {
@@ -65,7 +65,7 @@ public class Core {
                   }
             }
 
-            return str.toString();
+            return line;
         }
 
         void writer(String write){
@@ -93,11 +93,7 @@ public class Core {
             String ans="nothing";
             String input=handeler();
             System.out.println(input);
-            String[] splitArr=input.split("-");
-            if(splitArr[1].equals("+")){
-                ans=Integer.parseInt(splitArr[0])+ Integer.parseInt(splitArr[2]) + "";
-            }
-                writer(ans);
+
         }
 
 
