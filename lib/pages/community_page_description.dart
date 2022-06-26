@@ -24,7 +24,7 @@ class CommunityPageDesState extends State {
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: 1,
+      itemCount: 5,
       itemBuilder: (context, index) {
         upVote() {
           setState(() {

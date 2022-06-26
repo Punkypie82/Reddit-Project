@@ -33,7 +33,7 @@ class CommunityPageState extends State with TickerProviderStateMixin {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(364),
+        preferredSize: Size.fromHeight(337),
         child: Container(
           color: const Color.fromARGB(255, 18, 18, 18),
           child: Column(
@@ -41,7 +41,7 @@ class CommunityPageState extends State with TickerProviderStateMixin {
               Stack(
                 children: [
                   Image.network(community.backgroundImage,
-                    height: 160.0,
+                    height: 150.0,
                     width: MediaQuery.of(context).size.width,
                     fit: BoxFit.cover,
                   ),
@@ -92,7 +92,7 @@ class CommunityPageState extends State with TickerProviderStateMixin {
                     ],
                   ),
                   Padding(
-                    padding: EdgeInsets.fromLTRB(20.0, 100.0, 0.0, 0.0),
+                    padding: EdgeInsets.fromLTRB(20.0, 90.0, 0.0, 0.0),
                     child: Container(
                       height: 80.0,
                       width: 80.0,
@@ -159,7 +159,7 @@ class CommunityPageState extends State with TickerProviderStateMixin {
                 ],
               ),
               Padding(
-                padding: EdgeInsets.only(left: 23.0, top: 20.0),
+                padding: EdgeInsets.only(left: 23.0, top: 3.0),
                 child: Row(
                   children: [
                     Text(myFormat.format(community.memberCount) + ' members • ', style: TextStyle(color: Color.fromARGB(255,103,103,103), fontSize: 15),),
