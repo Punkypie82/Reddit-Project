@@ -39,6 +39,7 @@ dependencies:
   font_awesome_flutter: ^10.1.0
   flutter_linkify: ^5.0.2
   url_launcher: ^6.0.0
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:
@@ -75,7 +76,7 @@ flutter:
    - assets/images/9.png
    - assets/images/10.png
    - assets/images/11.png
-
+   - assets/images/reddit-logomark-logo.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
