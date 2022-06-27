@@ -1,7 +1,4 @@
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
@@ -88,11 +85,31 @@ public class Core {
 
             }
 
+
             @Override
         public void run(){
+
             String ans="nothing";
+            String wStr="nothing";
             String input=handeler();
-            System.out.println(input);
+            String [] inputArr = input.split(",");
+
+            if(inputArr[0].equals("CreatePost")){
+
+                wStr=inputArr[1]+","+inputArr[2]+","+inputArr[3];
+                try {
+                    FileWriter myWriter = new FileWriter("AddPost.txt",true);
+                    myWriter.write(wStr);
+                    myWriter.close();
+                    System.out.println("Successfully wrote to the file.");
+                } catch (IOException e) {
+                    System.out.println("An error occurred.");
+                    e.printStackTrace();
+                }
+           }
+
+
+
 
         }
 
